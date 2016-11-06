@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 class ItemGenerator extends Component {
   render() {
     return (
-      <div className="ItemGenerator">
-        <h2>Item Generator</h2>
+      <div className="item_generator">
+        <input className="item_generator-field" type="text" />
+        <button className="item_generator-add">Add</button>
       </div>
     )
   }
