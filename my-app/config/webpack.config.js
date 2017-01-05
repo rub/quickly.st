@@ -5,6 +5,7 @@ const paths = require('./paths');
 
 
 module.exports = {
+  devtool: 'cheap-module-source-map',
   entry: [
     // We use the custom client for WebpackDevServer provided by
     // Create React App project. It can be replaced anytime with:
