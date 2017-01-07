@@ -1,4 +1,5 @@
 import React from 'react';
+import ItemGenerator from './ItemGenerator/ItemGenerator';
 import ItemsList from './ItemsList/ItemsList';
 
 const items = [
@@ -21,12 +22,22 @@ class App extends React.Component {
     super(props);
 
     // Set up the state
-    this.state = { items };
+    this.state = {
+      items,
+      value: '',
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value });
   }
 
   render() {
     return (
       <div className="App">
+        <ItemGenerator inputValue={this.state.value} onInputChange={this.handleChange} />
         <ItemsList items={this.state.items} />
       </div>
     );
