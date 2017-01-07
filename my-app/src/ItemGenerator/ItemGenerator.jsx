@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ItemGenerator({ inputValue, onInputChange }) {
+function ItemGenerator({ inputValue, onInputChange, onTaskSubmit }) {
   return (
     <div className="item_generator">
       <input
@@ -9,7 +9,7 @@ function ItemGenerator({ inputValue, onInputChange }) {
         value={inputValue}
         onChange={onInputChange}
       />
-      <button className="item_generator-add">Add</button>
+      <button className="item_generator-add" onClick={onTaskSubmit}>Add</button>
     </div>
   );
 }
@@ -17,6 +17,7 @@ function ItemGenerator({ inputValue, onInputChange }) {
 ItemGenerator.propTypes = {
   inputValue: React.PropTypes.string,
   onInputChange: React.PropTypes.func,
+  onTaskSubmit: React.PropTypes.func,
 };
 
 export default ItemGenerator;

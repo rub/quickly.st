@@ -28,16 +28,26 @@ class App extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
     this.setState({ value: event.target.value });
   }
 
+  handleSubmit(event) {
+    alert(`a new task is created: ${this.state.value}`);
+    event.preventDefault();
+  }
+
   render() {
     return (
       <div className="App">
-        <ItemGenerator inputValue={this.state.value} onInputChange={this.handleChange} />
+        <ItemGenerator
+          inputValue={this.state.value}
+          onInputChange={this.handleChange}
+          onTaskSubmit={this.handleSubmit}
+        />
         <ItemsList items={this.state.items} />
       </div>
     );
