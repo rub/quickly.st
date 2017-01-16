@@ -2,7 +2,7 @@ import React from 'react';
 
 function ItemGenerator({ inputValue, onInputChange, onTaskSubmit }) {
   return (
-    <div className="item_generator">
+    <form className="item_generator">
       <input
         className="item_generator-field"
         type="text" name="task"
@@ -10,7 +10,7 @@ function ItemGenerator({ inputValue, onInputChange, onTaskSubmit }) {
         onChange={onInputChange}
       />
       <button className="item_generator-add" onClick={onTaskSubmit}>Add</button>
-    </div>
+    </form>
   );
 }
 

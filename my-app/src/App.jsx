@@ -2,28 +2,14 @@ import React from 'react';
 import ItemGenerator from './ItemGenerator/ItemGenerator';
 import ItemsList from './ItemsList/ItemsList';
 
-const items = [
-  {
-    id: 1,
-    task: 'This is the first item',
-  },
-  {
-    id: 2,
-    task: 'This is the second item',
-  },
-  {
-    id: 3,
-    task: 'This is the third item',
-  },
-];
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
-    // Set up the state
+    // Set up default states
     this.state = {
-      items,
+      items: [],
       value: '',
     };
 
@@ -36,7 +22,14 @@ class App extends React.Component {
   }
 
   handleSubmit(event) {
-    alert(`a new task is created: ${this.state.value}`);
+    // Store the input value into a constant named "task"
+    const task = this.state.value;
+    // Add the task to the "items" array
+    this.state.items.push(task);
+    // Update items state with the newly added task
+    this.setState({ items: this.state.items });
+
+    // Prevent page refresh when the handleSubmit is called
     event.preventDefault();
   }
 

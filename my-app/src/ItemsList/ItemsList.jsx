@@ -8,7 +8,7 @@ const Itemslist = ({ items }) => {
   // map() uses the input element to create a <li> based on task item
   const itemsList = items.map((item, id) =>
     <li key={id}>
-      {item.task}
+      {item}
     </li>,
   );
   return (
