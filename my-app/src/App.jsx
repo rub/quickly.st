@@ -29,6 +29,9 @@ class App extends React.Component {
     // Update items state with the newly added task
     this.setState({ items: this.state.items });
 
+    // Clear the input value after the item is created
+    this.state.value = '';
+
     // Prevent page refresh when the handleSubmit is called
     event.preventDefault();
   }
