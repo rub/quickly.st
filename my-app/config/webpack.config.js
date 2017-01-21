@@ -9,9 +9,8 @@ module.exports = {
   entry: [
     // We use the custom client for WebpackDevServer provided by
     // Create React App project. It can be replaced anytime with:
-    // require.resolve('webpack-dev-server/client') + '?/',
-    // require.resolve('webpack/hot/dev-server'),
-    require.resolve('react-dev-utils/webpackHotDevClient'),
+    require.resolve('webpack-dev-server/client') + '?/',
+    require.resolve('webpack/hot/dev-server'),
     paths.appIndexJs
   ],
   output: {
