@@ -15,13 +15,14 @@ class App extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDeleteItem = this.handleDeleteItem.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
+  handleChange(e) {
+    this.setState({ value: e.target.value });
   }
 
-  handleSubmit(event) {
+  handleSubmit(e) {
     // Store the input value into a constant named "task"
     const task = this.state.value;
     // Add the task to the "items" array
@@ -33,7 +34,23 @@ class App extends React.Component {
     this.state.value = '';
 
     // Prevent page refresh when the handleSubmit is called
-    event.preventDefault();
+    e.preventDefault();
+  }
+
+  handleDeleteItem(e) {
+    // Get the index (the id value associated with the button) of the item that
+    // dispatches the event, then store it in a constant.
+    const itemIndex = parseInt(e.target.value, 10);
+    console.log(itemIndex, this.state.items[itemIndex]);
+
+    // Store the array of items into a constant
+    const itemsList = this.state.items;
+
+    // Remove the targeted item from the array
+    itemsList.splice(itemIndex, 1);
+
+    // Update the state of the array
+    this.setState({ items: itemsList });
   }
 
   render() {
@@ -44,7 +61,7 @@ class App extends React.Component {
           onInputChange={this.handleChange}
           onTaskSubmit={this.handleSubmit}
         />
-        <ItemsList items={this.state.items} />
+        <ItemsList items={this.state.items} onTaskDelete={this.handleDeleteItem} />
       </div>
     );
   }
