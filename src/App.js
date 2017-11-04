@@ -8,27 +8,73 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      value: ''
+      items: [],
+      text: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   /**
-   * [handleChange description]
-   * Update input text value
+   * Update the input text state while user is writing.
    */
-  handleChange(event) {
+  handleChange(e) {
     this.setState({
-      value: event.target.value
+      text: e.target.value
     });
+  }
+
+  /**
+   * Display a todo item based on input text value.
+   * Clear the input text once user submitted the item.
+   */
+  handleSubmit(e) {
+    e.preventDefault();
+
+    if(!this.state.text) {
+      return;
+    }
+
+    const newItem = {
+      text: this.state.text,
+      id: Date.now()
+    }
+
+    this.setState(prevState => ({
+      items: prevState.items.concat(newItem),
+      text: ''
+    }))
+  }
+
+  /**
+   * Create a new array that contains every item except the one user is
+   * removing. To do this we use the filter method to check the key of the
+   * clicked item against all of the items of the list.
+   * @param  {string} key - The item's key user is removing.
+   * @return {array} An array of remaining todo items.
+   */
+  handleDelete(key) {
+    var filteredItems = this.state.items.filter(item => item.id !== key);
+
+    this.setState({
+      items: filteredItems
+    })
   }
 
   render() {
     return (
       <div>
-        <TodoForm value={this.handleChange} />
-        <TodoList />
+        <TodoForm
+          text={this.handleChange}
+          submit={this.handleSubmit}
+          inputValue={this.state.text}
+        />
+        <TodoList
+          items={this.state.items}
+          delete={this.handleDelete}
+        />
       </div>
     )
   }
