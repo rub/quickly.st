@@ -1,0 +1,8 @@
+.todo_list {
+  padding-top: 4.236rem;
+}
+
+.todo_list .list {
+  list-style-type: none;
+  padding: 0;
+}

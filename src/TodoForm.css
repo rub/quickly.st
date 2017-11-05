@@ -1,0 +1,28 @@
+.todo_form .form {
+  position: relative;
+}
+
+.todo_form .input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #A4ADB6;
+  color: #FFF;
+  font-family: Roboto;
+  font-size: 1rem;
+  padding: 0.382rem 0;
+  width: 100%;
+}
+
+.todo_form .input::placeholder {
+  color: #A4ADB6;
+}
+
+.todo_form .input:focus {
+  outline: none;
+}
+
+.todo_form .button {
+  bottom: 0.382rem;
+  position: absolute;
+  right: 0;
+}

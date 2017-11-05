@@ -1,10 +1,12 @@
 import React from 'react';
 
+import './TodoItem.css';
+
 
 class TodoItem extends React.Component {
   render() {
     return (
-      <li>
+      <li className="todo_item">
         {this.props.text}
         <button onClick={(e) => this.props.delete(this.props.id, e)}>-</button>
       </li>

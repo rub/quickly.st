@@ -2,6 +2,8 @@ import React from 'react';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
+import './App.css';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -65,16 +67,18 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <TodoForm
-          text={this.handleChange}
-          submit={this.handleSubmit}
-          inputValue={this.state.text}
-        />
-        <TodoList
-          items={this.state.items}
-          delete={this.handleDelete}
-        />
+      <div className="app">
+        <div className="app-container">
+          <TodoForm
+            text={this.handleChange}
+            submit={this.handleSubmit}
+            inputValue={this.state.text}
+          />
+          <TodoList
+            items={this.state.items}
+            delete={this.handleDelete}
+          />
+        </div>
       </div>
     )
   }
