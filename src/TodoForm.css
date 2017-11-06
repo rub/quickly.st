@@ -21,8 +21,17 @@
   outline: none;
 }
 
-.todo_form .button {
-  bottom: 0.382rem;
+.todo_form .add_container {
+  bottom: 0;
   position: absolute;
   right: 0;
+}
+
+/**
+ * A small trick to use the SVG as a submit button. First, we wrap both the
+ * submit button and the SVG inside a <label> so that they are associated
+ * together, then we hide the submit button.
+ */
+.hidden_submit {
+  display: none;
 }

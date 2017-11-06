@@ -1,4 +1,5 @@
 import React from 'react';
+import SvgIcon from './SvgIcon';
 
 import './TodoForm.css';
 
@@ -14,7 +15,10 @@ class TodoForm extends React.Component {
             onChange={this.props.text}
             value={this.props.inputValue}
           />
-          <button className="button" type="submit">+</button>
+          <label className="add_container">
+            <input className="hidden_submit" type="submit" />
+            <SvgIcon icon="add" />
+          </label>
         </form>
       </div>
     )

@@ -1,5 +1,4 @@
 .todo_item {
-  align-items: center;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -7,4 +6,9 @@
 
 .todo_item + .todo_item {
   margin-top: 1.618rem;
+}
+
+.todo_item .todo_text {
+  margin-right: auto;
+  padding: 0 1rem;
 }
