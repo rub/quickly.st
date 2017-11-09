@@ -17,6 +17,7 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleCheck = this.handleCheck.bind(this);
   }
 
   /**
@@ -41,7 +42,8 @@ class App extends React.Component {
 
     const newItem = {
       text: this.state.text,
-      id: Date.now()
+      id: Date.now(),
+      checked: false,
     }
 
     this.setState(prevState => ({
@@ -51,14 +53,29 @@ class App extends React.Component {
   }
 
   /**
+   * Check/uncheck the single item by clicking on the check icon.
+   * To do this we update the checked boolean every time user clicks on it.
+   * @param  {string} checkedItemId - The id of the item user is checking.
+   * @return {array} An array that contains all items plus the updated one.
+   */
+  handleCheck(checkedItemId) {
+    this.setState(prevState => ({
+      items: prevState.items.map(item => (
+        item.id === checkedItemId ? Object.assign({}, item, {checked: !item.checked}) : item)
+      )
+    }));
+  }
+
+  /**
    * Create a new array that contains every item except the one user is
-   * removing. To do this we use the filter method to check the key of the
-   * clicked item against all of the items of the list.
-   * @param  {string} key - The item's key user is removing.
+   * removing.
+   * To do this we use the filter method to check the key of the clicked item
+   * against all of the items of the list.
+   * @param  {string} deletingItemId - The id of the item user is removing.
    * @return {array} An array of remaining todo items.
    */
-  handleDelete(key) {
-    var filteredItems = this.state.items.filter(item => item.id !== key);
+  handleDelete(deletingItemId) {
+    const filteredItems = this.state.items.filter(item => item.id !== deletingItemId);
 
     this.setState({
       items: filteredItems
@@ -77,6 +94,7 @@ class App extends React.Component {
           <TodoList
             items={this.state.items}
             delete={this.handleDelete}
+            checkItem={this.handleCheck}
           />
         </div>
       </div>

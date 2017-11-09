@@ -12,3 +12,12 @@
   margin-right: auto;
   padding: 0 1rem;
 }
+
+.todo_item .is_checked svg path {
+  fill: #58E1CC;
+}
+
+.todo_item .todo_text.is_checked {
+  color: #A4ADB6;
+  text-decoration: line-through;
+}

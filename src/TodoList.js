@@ -14,6 +14,8 @@ class TodoList extends React.Component {
               key={item.id}
               id={item.id}
               text={item.text}
+              hasChecked={item.checked}
+              checkItem={this.props.checkItem}
               delete={this.props.delete}
             />
           ))}

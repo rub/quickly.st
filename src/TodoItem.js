@@ -6,13 +6,14 @@ import './TodoItem.css';
 
 class TodoItem extends React.Component {
   render() {
+    const checkedStyle = this.props.hasChecked === true ? 'is_checked' : '';
     return (
       <li className="todo_item">
-        <div>
+        <div onClick={(e) => this.props.checkItem(this.props.id)} className={checkedStyle}>
           <SvgIcon icon="check" />
         </div>
-        <span className="todo_text">{this.props.text}</span>
-        <div onClick={(e) => this.props.delete(this.props.id, e)}>
+        <span className={"todo_text " + checkedStyle}>{this.props.text}</span>
+        <div onClick={(e) => this.props.delete(this.props.id)}>
           <SvgIcon icon="delete" />
         </div>
       </li>
