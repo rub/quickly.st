@@ -4,11 +4,12 @@
   flex-direction: column;
   align-items: center;
   height: 100%;
-  padding: 6.854rem 1rem 0;
+  padding: 1rem;
   width: 100%;
 }
 
 .app .app-container {
   max-width: 768px;
+  padding-top: 4.236rem;
   width: 100%;
 }
