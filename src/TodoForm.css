@@ -35,3 +35,7 @@
 .hidden_submit {
   display: none;
 }
+
+.todo_form .is_not_empty > svg > path {
+  fill: #58E1CC;
+}

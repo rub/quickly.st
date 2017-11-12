@@ -6,6 +6,8 @@ import './TodoForm.css';
 
 class TodoForm extends React.Component {
   render() {
+    const plusStyle = this.props.inputValue ? "is_not_empty" : "";
+
     return (
       <div className="todo_form">
         <form className="form" onSubmit={this.props.submit}>
@@ -17,7 +19,9 @@ class TodoForm extends React.Component {
           />
           <label className="add_container">
             <input className="hidden_submit" type="submit" />
-            <SvgIcon icon="add" />
+            <div className={plusStyle}>
+              <SvgIcon icon="add" />
+            </div>
           </label>
         </form>
       </div>
