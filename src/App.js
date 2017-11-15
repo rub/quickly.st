@@ -19,6 +19,7 @@ class App extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
+    this.toggleItemOptions = this.toggleItemOptions.bind(this);
   }
 
   /**
@@ -45,6 +46,7 @@ class App extends React.Component {
       text: this.state.text,
       id: Date.now(),
       checked: false,
+      hovered: false,
     }
 
     this.setState(prevState => ({
@@ -56,8 +58,9 @@ class App extends React.Component {
   /**
    * Check/uncheck the single item by clicking on the check icon.
    * To do this we update the checked boolean every time user clicks on it.
-   * @param  {string} checkedItemId - The id of the item user is checking.
-   * @return {array} An array that contains all items plus the updated one.
+   * @param  {string} checkedItemId - The id of the item that triggers the
+   * click event.
+   * @return {array} The whole list of items including the last updated item.
    */
   handleCheck(checkedItemId) {
     this.setState(prevState => ({
@@ -68,12 +71,27 @@ class App extends React.Component {
   }
 
   /**
+   * Show/hide item options when user goes over/out the item itself.
+   * @param  {string} hoveredItemId - The id of the item that triggers the
+   * mouse event.
+   * @return {array} The whole list of items including the last updated item.
+   */
+  toggleItemOptions(hoveredItemId) {
+    this.setState(prevState => ({
+      items: prevState.items.map(item => (
+        console.log(item.hovered),
+        item.id === hoveredItemId ? Object.assign({}, item, {hovered: !item.hovered}) : item )
+      )
+    }));
+  }
+
+  /**
    * Create a new array that contains every item except the one user is
    * removing.
    * To do this we use the filter method to check the key of the clicked item
    * against all of the items of the list.
    * @param  {string} deletingItemId - The id of the item user is removing.
-   * @return {array} An array of remaining todo items.
+   * @return {array} The previous list of items except the deleted one.
    */
   handleDelete(deletingItemId) {
     const filteredItems = this.state.items.filter(item => item.id !== deletingItemId);
@@ -97,6 +115,8 @@ class App extends React.Component {
             items={this.state.items}
             delete={this.handleDelete}
             checkItem={this.handleCheck}
+            toggleItemOptions={this.toggleItemOptions}
+            hovered={this.state.hovered}
           />
         </div>
       </div>

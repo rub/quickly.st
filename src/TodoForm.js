@@ -16,6 +16,7 @@ class TodoForm extends React.Component {
             placeholder="Add new item"
             onChange={this.props.text}
             value={this.props.inputValue}
+            autoFocus
           />
           <label className="add_container">
             <input className="hidden_submit" type="submit" />

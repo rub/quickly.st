@@ -1,11 +1,12 @@
 .todo_item {
   display: flex;
   justify-content: space-between;
+  padding: 0.618rem 0;
   width: 100%;
 }
 
-.todo_item + .todo_item {
-  margin-top: 1.618rem;
+.todo_item:hover {
+  background: rgba(255, 255, 255, 0.016);
 }
 
 .todo_item .todo_text {
@@ -20,4 +21,13 @@
 .todo_item .todo_text.is_checked {
   color: #A4ADB6;
   text-decoration: line-through;
+}
+
+.todo_item .delete {
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.todo_item .delete.are_options_visible {
+  visibility: visible;
 }

@@ -17,6 +17,8 @@ class TodoList extends React.Component {
               hasChecked={item.checked}
               checkItem={this.props.checkItem}
               delete={this.props.delete}
+              toggleItemOptions={this.props.toggleItemOptions}
+              hovered={item.hovered}
             />
           ))}
         </ul>
