@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the app without crashing 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="App-container"
+  />
+</div>
+`;
