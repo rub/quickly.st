@@ -1,0 +1,18 @@
+.TodoInput-input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #A4ADB6;
+  color: #FFF;
+  font-family: Roboto;
+  font-size: 1rem;
+  padding: 0.382rem 1.618rem 0.382rem 0;
+  width: 100%;
+}
+
+.TodoInput-input::placeholder {
+  color: #A4ADB6;
+}
+
+.TodoInput-input:focus {
+  outline: none;
+}

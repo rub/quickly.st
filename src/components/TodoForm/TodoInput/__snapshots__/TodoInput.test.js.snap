@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the input field without crashing 1`] = `
+<div
+  className="TodoInput"
+>
+  <input
+    autoFocus={true}
+    className="TodoInput-input"
+    onChange={[Function]}
+    placeholder="Add new item"
+    type="text"
+    value="I'm a todo"
+  />
+</div>
+`;
