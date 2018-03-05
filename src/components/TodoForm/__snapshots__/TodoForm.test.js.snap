@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the form without crashing 1`] = `
+<div
+  className="TodoForm"
+>
+  <div
+    className="TodoInput"
+  >
+    <input
+      autoFocus={true}
+      className="TodoInput-input"
+      onChange={[Function]}
+      placeholder="Add new item"
+      type="text"
+      value="I'm a todo"
+    />
+  </div>
+  <label
+    className="TodoForm-submit"
+  >
+    <input
+      className="TodoForm-submit-hidden"
+      type="submit"
+    />
+    <svg
+      className="TodoForm-submit-visible is_filled"
+      height="18"
+      viewBox="0 0 24 24"
+      width="18"
+    >
+      <path
+        d="M9.7 0v9.7H0v4.6h9.7V24h4.6v-9.7H24V9.7h-9.7V0H9.7z"
+        fill="#88929F"
+      />
+    </svg>
+  </label>
+</div>
+`;

@@ -1,0 +1,26 @@
+.TodoForm {
+  position: relative;
+}
+
+.TodoForm-submit {
+  bottom: 0.146rem;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+}
+
+/**
+ * We need the input submit in order to keep the Enter key press event
+ * available.
+ */
+.TodoForm-submit-hidden {
+  display: none;
+}
+
+.TodoForm-submit-visible path {
+  transition: 0.17s ease;
+}
+
+.TodoForm-submit-visible.is_filled path {
+  fill: #58E1CC;
+}
