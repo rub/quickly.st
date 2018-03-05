@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const icons = {
   add: 'M9.7 0v9.7H0v4.6h9.7V24h4.6v-9.7H24V9.7h-9.7V0H9.7z',
@@ -7,9 +8,17 @@ const icons = {
 }
 
 const SvgIcon = (props) => (
-  <svg width="18" height="18" viewBox="0 0 24 24">
+  <svg className={props.className} width="18" height="18" viewBox="0 0 24 24">
     <path d={icons[props.icon]} fill="#88929F"></path>
   </svg>
 )
+
+SvgIcon.propTypes = {
+  /** SvgIcon can have a class name */
+  className: PropTypes.string,
+
+  /** SvgIcon must refers to an icon from the asset */
+  icon: PropTypes.string.isRequired,
+}
 
 export default SvgIcon;
